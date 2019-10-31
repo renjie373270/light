@@ -86,37 +86,16 @@ void initWiFiUSART() {
 }
 
 /**
- * 获取字符串长度
- * */
-uint16_t getStringSize(char *buff) {
-    uint16_t count = 0;
-    for(count = 0; count < 4096; count++) {
-        if(buff[count] == '\0') {					
-            break;
-        }
-        if(buff[count] == '\r') {
-						count++;
-            if(buff[count] == '\n') {
-								count++;
-                break;
-            }
-        }
-    }
-    return count;
-}
-
-/**
  * 发送数据
  * */
 void sendDataToUSART1(char *buff) {
     uint16_t count;
     txStatus.status = RUNNING;
     txStatus.counter = 0;
-    txStatus.length = getStringSize(buff);
+    txStatus.length = strlen(buff);
     for(count = 0; count < txStatus.length; count++) {
         txStatus.buffer[count] = buff[count];
     }
-//    USART_SendData(USART1, txStatus.buffer[txStatus.counter]);
     USART_ITConfig(USART1, USART_IT_TXE, ENABLE);
 }
 
