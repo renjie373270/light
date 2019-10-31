@@ -4,13 +4,15 @@
 
 #include "usart1.h"
 
+#define MAX_LENGTH = 1024
+
 enum RunningStatus{
     RUNNING,
     DONE
 };
 
 struct USARTStatus {
-    char buffer[1024];
+    char buffer[MAX_LENGTH];
     uint16_t  counter;
     uint16_t  length;
     enum RunningStatus status;
@@ -144,6 +146,8 @@ void USART1_IRQHandler() {
             rxStatus.status = RUNNING;
         }
         rxStatus.buffer[rxStatus.counter] = USART_ReceiveData(USART1);
-        rxStatus.counter ++;
+        if(rxStatus.counter < MAX_LENGTH) {
+            rxStatus.counter ++;
+        }
     }
 }
