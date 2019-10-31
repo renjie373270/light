@@ -30,6 +30,10 @@ static void feedDogTask(void *parameter) {
     }
 }
 
+
+/**
+ * LED иак╦
+ * */
 static void ledTask(void *parameter) {
     while (1) {
         ledOn();
