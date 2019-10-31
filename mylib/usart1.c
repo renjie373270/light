@@ -4,6 +4,17 @@
 
 #include "usart1.h"
 
+enum RunningStatus{
+    RUNNING,
+    DONE
+};
+
+struct USARTStatus {
+    char buffer[1024];
+    uint16_t  counter;
+    uint16_t  length;
+    enum RunningStatus status;
+};
 
 struct USARTStatus txStatus;
 struct USARTStatus rxStatus;
