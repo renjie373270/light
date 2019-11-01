@@ -44,25 +44,24 @@ static void ledTask(void *parameter) {
 }
 
 /**
- * 串口任务
+ * wifi任务
  * */
-static void usart1Task(void *parameter) {
-    char buff[512] = {0};
-    uint16_t size = 0;
+static void wifiTask(void *parameter) {
+    static enum ESPWorkingMode espWorkingMode = ESP8266_NULL;
+    char ssid[20] = {0}, mac[20] = {0}, channel[5] = {0}, rssi[5] = {0};
     while (1) {
-        receiveDataFromUSART1(buff, &size);
-        if(size > 0) {
-            size = 0;
-            sendDataToUSART1(buff);
-        }
-        delayInMilliSeconds(100);
+        //espWorkingMode = getESPWorkingMode();
+        checkCurrentConnection(ssid, mac, channel, rssi);
+        delayInMilliSeconds(2000);
+//        setESP8266WorkingMode(ESP8266_STATION);
+//        delayInMilliSeconds(2000);
     }
 }
 
 int main() {
     initAllDevices();
     xTaskCreate(initTask, "initTask", 64, NULL, 31, NULL);
-    xTaskCreate(usart1Task, "usart1Task", 1024, NULL, 30, NULL);
+    xTaskCreate(wifiTask, "wifiTask", 1024, NULL, 30, NULL);
     xTaskCreate(ledTask, "ledTask", 64, NULL, 29, NULL);
     xTaskCreate(feedDogTask, "feedDogTask", 64, NULL, 28, NULL);
     vTaskStartScheduler();

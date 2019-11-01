@@ -486,6 +486,16 @@
               <FileType>1</FileType>
               <FilePath>.\mylib\led.c</FilePath>
             </File>
+            <File>
+              <FileName>ESP8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mylib\ESP8266.c</FilePath>
+            </File>
+            <File>
+              <FileName>mystring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mylib\mystring.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

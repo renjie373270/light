@@ -15,5 +15,7 @@
 #include "myflash.h"
 #include "usart1.h"
 #include "led.h"
+#include "ESP8266.h"
+#include "mystring.h"
 
 #endif

@@ -69,7 +69,7 @@ void subString(const char * source, uint16_t startInclusive, uint16_t endInclusi
     }
 }
 
-uint16_t indexOf(char * source, char * str) {
+int16_t indexOf(char * source, char * str) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t sizeOfStr = strlen(str);
     uint16_t count = 0;
@@ -85,7 +85,7 @@ uint16_t indexOf(char * source, char * str) {
     return -1;
 }
 
-uint16_t lastIndexOf(char * source, char * str) {
+int16_t lastIndexOf(char * source, char * str) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t sizeOfStr = strlen(str);
     uint16_t count = 0;
@@ -128,7 +128,7 @@ void replaceFirst(char * source, char * oldStr, char * newStr, char * result) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t sizeOfOldStr = strlen(oldStr);
     uint16_t sizeOfNewStr = strlen(newStr);
-    uint16_t index = indexOf(source, oldStr), count = 0;
+    int16_t index = indexOf(source, oldStr);
 
     if(index == -1) {
         strcpy(source, result);
@@ -141,20 +141,25 @@ void replaceFirst(char * source, char * oldStr, char * newStr, char * result) {
 }
 
 void replaceAll(char * source, char * oldStr, char * newStr, char * result) {
-    char tempString[1024];
+    char tempString1[512] = {0}, tempString2[512] = {0};
+    uint16_t lengthOfOld = strlen(oldStr), lengthOfNew = strlen(newStr);
     if(contains(source, oldStr) == FALSE) {
         strcpy(source, result);
         return;
     }
 
-    strcpy(source, tempString);
-    while (contains(tempString, oldStr) == TRUE) {
-        replaceFirst(tempString, oldStr, newStr, result);
-        strcpy(result, tempString);
+    strcpy(source, tempString1);
+    while (contains(tempString1, oldStr) == TRUE) {
+        replaceFirst(tempString1, oldStr, newStr, tempString2);
+        clearString(tempString1, 512);
+
+        strcpy(tempString2, tempString1);
+        clearString(tempString2, 512);
     }
+    strcpy(tempString1, result);
 }
 
-void split(char * source, char * delimeter, char results[20][128]) {
+void split(char * source, char * delimeter, char results[8][128]) {
     uint16_t lengthOfSource = strlen(source);
     uint16_t lengthOfDelimeter = strlen(delimeter);
     uint16_t count = 0, row = 0, column = 0;
@@ -169,5 +174,12 @@ void split(char * source, char * delimeter, char results[20][128]) {
         }
         results[row][column] = source[count];
         column ++;
+    }
+}
+
+void clearString(char * source, uint16_t size) {
+    uint16_t count = 0;
+    for (count = 0; count < size; count++) {
+        source[count] = 0;
     }
 }
