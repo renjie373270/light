@@ -15,6 +15,13 @@ uint16_t strlen(const char * source) {
     return 0;
 }
 
+enum ResultEnum isEmpty(const char * source) {
+    if(strlen(source) == 0) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 enum ResultEnum startWith(char * source, char * str) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t sizeOfStr = strlen(str);
@@ -89,7 +96,7 @@ int16_t lastIndexOf(char * source, char * str) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t sizeOfStr = strlen(str);
     uint16_t count = 0;
-    char subOfSource[1024];
+    char subOfSource[512];
 
     if(sizeOfSource < sizeOfStr) {
         return -1;
@@ -159,7 +166,7 @@ void replaceAll(char * source, char * oldStr, char * newStr, char * result) {
     strcpy(tempString1, result);
 }
 
-void split(char * source, char * delimeter, char results[8][128]) {
+void split(char * source, char * delimeter, char results[8][64]) {
     uint16_t lengthOfSource = strlen(source);
     uint16_t lengthOfDelimeter = strlen(delimeter);
     uint16_t count = 0, row = 0, column = 0;

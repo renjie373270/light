@@ -13,6 +13,7 @@ enum ResultEnum {
 };
 
 uint16_t strlen(const char * source);
+enum ResultEnum isEmpty(const char * source);
 enum ResultEnum startWith(char * source, char * str);
 enum ResultEnum endWith(char * source, char * str);
 enum ResultEnum contains(char * source, char * str);
@@ -23,7 +24,7 @@ void strcpy(char * source, char * destination);
 void strncpy(char * source, char * destination, uint16_t size);
 void replaceFirst(char * source, char * oldStr, char * newStr, char * result);
 void replaceAll(char * source, char * oldStr, char * newStr, char * result);
-void split(char * source, char * delimeter, char results[8][128]);
+void split(char * source, char * delimeter, char results[8][64]);
 void clearString(char * source, uint16_t size);
 
 #endif //LIGHT_MYSTRING_H

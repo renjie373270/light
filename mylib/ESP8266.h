@@ -7,11 +7,6 @@
 
 #include "main.h"
 
-enum CompareResult {
-    COMPARE_FALSE = 0,
-    COMPARE_TRUE = 1
-};
-
 enum ESPWorkingMode {
     ESP8266_STATION = 1, //у╬╣Ц
     ESP8266_AP = 2,//б╥си
@@ -20,8 +15,24 @@ enum ESPWorkingMode {
     ESP8266_NULL = 5
 };
 
+enum WorkingResultEnum {
+    SUCCEED = 1,
+    FAILED = 0
+};
+
+typedef struct {
+    char ssid[64];
+    char mac[32];
+    char channel[4];
+    char rssi[4];
+}WiFiConfig;
+
 enum ESPWorkingMode getESPWorkingMode(void);
-void setESP8266WorkingMode(enum ESPWorkingMode espWorkingMode);
-void checkCurrentConnection(char *ssid, char *mac, char *channel, char *rssi);
+enum WorkingResultEnum setESP8266WorkingMode(enum ESPWorkingMode espWorkingMode);
+WiFiConfig checkConnection(void);
+enum WorkingResultEnum connectWiFi(char *ssid, char *password);
+enum WorkingResultEnum disconnectWiFi(void);
+void getIPV4Address(char *ipv4);
+void initESP8266(void);
 
 #endif //LIGHT_ESP8266_H

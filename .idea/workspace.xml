@@ -10,18 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39b8190c-eba2-4d20-b154-1ccfece66502" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ESP8266配置.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/light.uvguix.Steven" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvguix.Steven" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/light.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvoptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/light.uvprojx" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvprojx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/ESP8266.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/ESP8266.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/ESP8266.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/ESP8266.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/mystring.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/mystring.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/mystring.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/mystring.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mylib/usart1.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/usart1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/FreeRTOSConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/user/FreeRTOSConfig.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +80,7 @@
       <workItem from="1572483022906" duration="10759000" />
       <workItem from="1572495654862" duration="1227000" />
       <workItem from="1572497939215" duration="629000" />
-      <workItem from="1572498724097" duration="18227000" />
+      <workItem from="1572498724097" duration="32937000" />
     </task>
     <servers />
   </component>

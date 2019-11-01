@@ -14,9 +14,10 @@ void initAllDevices() {
  * */
 static void initTask(void *parameter) {
     initAllDevices();
-    initDog();
+    //initDog();
     initWiFiUSART();
     initLEDGPIO();
+    //initESP8266();
     vTaskDelete(NULL);
 }
 
@@ -47,22 +48,29 @@ static void ledTask(void *parameter) {
  * wifi»ŒŒÒ
  * */
 static void wifiTask(void *parameter) {
-    static enum ESPWorkingMode espWorkingMode = ESP8266_NULL;
-    char ssid[20] = {0}, mac[20] = {0}, channel[5] = {0}, rssi[5] = {0};
+    WiFiConfig wiFiConfig;
+    char *name = "RJCJH", *password = "Apple@123@369";
     while (1) {
-        //espWorkingMode = getESPWorkingMode();
-        checkCurrentConnection(ssid, mac, channel, rssi);
-        delayInMilliSeconds(2000);
-//        setESP8266WorkingMode(ESP8266_STATION);
-//        delayInMilliSeconds(2000);
+//        checkConnection(ssid, mac, channel, rssi);
+//        if(isEmpty(ssid) == FALSE) {
+//            disconnectWiFi();
+//        }
+//        delayInMilliSeconds(3000);
+//
+//        checkConnection(ssid, mac, channel, rssi);
+//        if(isEmpty(ssid) == TRUE) {
+//            connectWiFi(name, password);
+//        }
+        wiFiConfig = checkConnection();
+        delayInMilliSeconds(3000);
     }
 }
 
 int main() {
     initAllDevices();
-    xTaskCreate(initTask, "initTask", 64, NULL, 31, NULL);
+    xTaskCreate(initTask, "initTask", 1024, NULL, 31, NULL);
     xTaskCreate(wifiTask, "wifiTask", 1024, NULL, 30, NULL);
     xTaskCreate(ledTask, "ledTask", 64, NULL, 29, NULL);
-    xTaskCreate(feedDogTask, "feedDogTask", 64, NULL, 28, NULL);
+    //xTaskCreate(feedDogTask, "feedDogTask", 64, NULL, 28, NULL);
     vTaskStartScheduler();
 }
