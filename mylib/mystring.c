@@ -115,17 +115,24 @@ int16_t lastIndexOf(char * source, char * str) {
 void strcpy(char * source, char * destination) {
     uint16_t sizeOfSource = strlen(source);
     uint16_t count = 0;
-
+    if(source == destination) {
+        return;
+    }
     for(count = 0; count < sizeOfSource; count++) {
         destination[count] = source[count];
     }
 }
 
 void strncpy(char * source, char * destination, uint16_t size) {
-    uint16_t sizeOfSource = strlen(source);
+    uint16_t sizeOfSource = strlen(source), count = 0;
     uint16_t minLength = sizeOfSource < size ? sizeOfSource : size;
-    uint16_t count = 0;
 
+    if(source == destination) {
+        for(count = minLength; count < sizeOfSource; count++) {
+            source[count] = 0;
+        }
+        return;
+    }
     for(count = 0; count < minLength; count++) {
         destination[count] = source[count];
     }
@@ -148,8 +155,13 @@ void replaceFirst(char * source, char * oldStr, char * newStr, char * result) {
 }
 
 void replaceAll(char * source, char * oldStr, char * newStr, char * result) {
-    char tempString1[512] = {0}, tempString2[512] = {0};
+    uint16_t SIZE = 512;
+    char *tempString1 = (char *) malloc(SIZE * sizeof(char));
+    char *tempString2 = (char *) malloc(SIZE * sizeof(char));
     uint16_t lengthOfOld = strlen(oldStr), lengthOfNew = strlen(newStr);
+
+    clearString(tempString1, SIZE);
+    clearString(tempString2, SIZE);
     if(contains(source, oldStr) == FALSE) {
         strcpy(source, result);
         return;
@@ -158,12 +170,14 @@ void replaceAll(char * source, char * oldStr, char * newStr, char * result) {
     strcpy(source, tempString1);
     while (contains(tempString1, oldStr) == TRUE) {
         replaceFirst(tempString1, oldStr, newStr, tempString2);
-        clearString(tempString1, 512);
+        clearString(tempString1, SIZE);
 
         strcpy(tempString2, tempString1);
-        clearString(tempString2, 512);
+        clearString(tempString2, SIZE);
     }
     strcpy(tempString1, result);
+    free(tempString1);
+    free(tempString2);
 }
 
 void split(char * source, char * delimeter, char results[8][64]) {
@@ -188,5 +202,34 @@ void clearString(char * source, uint16_t size) {
     uint16_t count = 0;
     for (count = 0; count < size; count++) {
         source[count] = 0;
+    }
+}
+
+uint8_t stringToHex(char *source) {
+    uint8_t byte = 0, count;
+    for(count = 0; count < 2; count ++) {
+        if(source[count] >= '0' && source[count] <= '9') {
+            byte |= (source[count] - '0');
+        } else if(source[count] >= 'A' && source[count] <= 'F') {
+            byte |= (source[count] - 'A' + 10);
+        }
+        if(count == 0) {
+            byte <<= 4;
+        }
+    }
+    return byte;
+}
+
+void hexToString(uint8_t hex, char *result) {
+    if((hex >> 4) <= 9) {
+        result[0] = (hex >> 4) + '0';
+    }else {
+        result[0] = (hex >> 4) + 'A' - 10;
+    }
+
+    if((hex & 0x0F) <= 9) {
+        result[1] = (hex & 0x0F) + '0';
+    }else {
+        result[1] = (hex & 0x0F) + 'A' - 10;
     }
 }

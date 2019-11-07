@@ -11,14 +11,14 @@ enum RunningStatus{
 };
 
 struct USARTStatus {
-    char buffer[512];
+    char buffer[1024];
     uint16_t  counter;
     uint16_t  length;
     enum RunningStatus status;
 };
 
-struct USARTStatus txStatus;
-struct USARTStatus rxStatus;
+volatile struct USARTStatus txStatus;
+volatile struct USARTStatus rxStatus;
 
 /**
  * 初始化串口1相关IO口
@@ -103,15 +103,18 @@ void sendDataToUSART1(char *buff) {
 /**
  * 接收数据
  * */
-void receiveDataFromUSART1(char *buff, uint16_t *length) {
-    uint16_t count;
+void receiveDataFromUSART1(char *buff, uint16_t *length, uint16_t maxLength) {
+    uint16_t count = 0, receiveSize = 0;
     if(rxStatus.status == RUNNING) {
         rxStatus.length = rxStatus.counter;
         delayInMilliSeconds(5);
         if(rxStatus.length == rxStatus.counter) {
-            *length = rxStatus.length + 1;
-            for(count = 0; count < *length; count++) {
+            *length = rxStatus.length;
+            receiveSize = *length < maxLength ? *length : maxLength;
+            for(count = 0; count < receiveSize; count++) {
                 buff[count] = rxStatus.buffer[count];
+            }
+            for(count = 0; count < *length; count++) {
                 rxStatus.buffer[count] = 0;
             }
             rxStatus.length = 0;
@@ -145,7 +148,7 @@ void USART1_IRQHandler() {
             rxStatus.status = RUNNING;
         }
         rxStatus.buffer[rxStatus.counter] = USART_ReceiveData(USART1);
-        if(rxStatus.counter < 512) {
+        if(rxStatus.counter < 1023) {
             rxStatus.counter ++;
         }
     }

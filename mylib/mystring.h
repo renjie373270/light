@@ -26,5 +26,6 @@ void replaceFirst(char * source, char * oldStr, char * newStr, char * result);
 void replaceAll(char * source, char * oldStr, char * newStr, char * result);
 void split(char * source, char * delimeter, char results[8][64]);
 void clearString(char * source, uint16_t size);
-
+uint8_t stringToHex(char *source);
+void hexToString(uint8_t hex, char *result);
 #endif //LIGHT_MYSTRING_H

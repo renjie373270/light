@@ -9,5 +9,6 @@
 
 void delayInit(void);
 void delayInMilliSeconds(u32 x);
+void delayInMicroSeconds(u32 x);
 
 #endif

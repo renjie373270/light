@@ -27,12 +27,18 @@ typedef struct {
     char rssi[4];
 }WiFiConfig;
 
+typedef struct {
+    char ssid[32];
+    int8_t rssi;
+}WiFiStruct;
+
 enum ESPWorkingMode getESPWorkingMode(void);
 enum WorkingResultEnum setESP8266WorkingMode(enum ESPWorkingMode espWorkingMode);
 WiFiConfig checkConnection(void);
-enum WorkingResultEnum connectWiFi(char *ssid, char *password);
+void searchWiFi(WiFiStruct wifiList[10]);
+enum WorkingResultEnum connectWiFi(const char *ssid, const char *password);
 enum WorkingResultEnum disconnectWiFi(void);
 void getIPV4Address(char *ipv4);
-void initESP8266(void);
+void initESP8266(const char *ssid, const char *password);
 
 #endif //LIGHT_ESP8266_H

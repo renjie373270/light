@@ -10,17 +10,75 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39b8190c-eba2-4d20-b154-1ccfece66502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ESP8266配置.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mylib/tcp.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mylib/tcp.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESP8266配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/ESP8266配置.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/FreeRTOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/StackMacros.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/croutine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/deprecated_definitions.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/event_groups.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/list.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/message_buffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/mpu_prototypes.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/mpu_wrappers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/portable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/projdefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/queue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/semphr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/stack_macros.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/stdint.readme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/stream_buffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/task.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/include/timers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/ReadMe.url" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/heap_1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/heap_2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/heap_3.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/heap_4.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/MemMang/heap_5.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM7_LPC21xx/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM7_LPC21xx/portASM.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM7_LPC21xx/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM7_LPC21xx/portmacro.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CA9/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CA9/portASM.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CA9/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CA9/portmacro.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM0/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM0/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM3/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM3/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM4F/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM4F/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM4_MPU/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM4_MPU/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM7/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM7/r0p1/port.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/port/RVDS/ARM_CM7/r0p1/portmacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/croutine.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/event_groups.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/list.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/queue.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/stream_buffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/tasks.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreeRTOS/src/timers.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/light.uvguix.Steven" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvguix.Steven" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/light.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvoptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/light.uvprojx" beforeDir="false" afterPath="$PROJECT_DIR$/light.uvprojx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/ESP8266.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/ESP8266.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/ESP8266.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/ESP8266.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylib/delay.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/delay.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylib/delay.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/delay.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/mystring.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/mystring.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylib/mystring.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/mystring.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/FreeRTOSConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/user/FreeRTOSConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylib/usart1.c" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/usart1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylib/usart1.h" beforeDir="false" afterPath="$PROJECT_DIR$/mylib/usart1.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,14 +93,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SxIFpT9L65K5D9JlQoq9GG90fY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/CLionProjects/CDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mylib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Steven\Documents\light\mylib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -80,7 +145,11 @@
       <workItem from="1572483022906" duration="10759000" />
       <workItem from="1572495654862" duration="1227000" />
       <workItem from="1572497939215" duration="629000" />
-      <workItem from="1572498724097" duration="32937000" />
+      <workItem from="1572498724097" duration="39691000" />
+      <workItem from="1572940294001" duration="902000" />
+      <workItem from="1572942028477" duration="1195000" />
+      <workItem from="1572943363331" duration="6000" />
+      <workItem from="1573001718688" duration="28243000" />
     </task>
     <servers />
   </component>
@@ -92,7 +161,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

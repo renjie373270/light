@@ -8,8 +8,6 @@
 #include "stm32f10x.h"
 #include "stm32f10x_conf.h"
 #include "delay.h"
-#include "FreeRTOS.h"
-#include "task.h"
 #include "dog.h"
 #include "stdio.h"
 #include "myflash.h"
@@ -17,5 +15,7 @@
 #include "led.h"
 #include "ESP8266.h"
 #include "mystring.h"
+#include "stdlib.h"
+#include "tcp.h"
 
 #endif
